@@ -1,0 +1,68 @@
+<div class="container text-center" [style.background-color]="currentColor" style="height: 100%; width: 100%; ">
+  <div class="row" >
+
+    <div class="col-3 mt-3">
+      <h3 style="color: white;"> <i class="fas fa-sun me-2"></i> Ma journée</h3>
+      <p style="color: white;">Jeudi le 14 Novembre 2024</p>     
+    </div>
+
+    <div class="col-3 mt-6 "  style="display: flex; position: relative; left: 65%; width: 50px; height: 40px;top: 30px;">
+      <button class="btn btn-primary" type="button" (click)="toggleDrawer()">
+        <i class="fas fa-bars "></i>
+      </button>
+              
+      <div class="offcanvas offcanvas-end" [class.show]="isDrawerOpen" tabindex="-1" id="drawer">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title">Suggestions</h3>
+          <button type="button" class="btn-close" (click)="toggleDrawer()" aria-label="Close"></button>
+        </div>
+
+        <!-- <div class="offcanvas-body">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Paramètres</a>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+              
+    <div class="offcanvas-backdrop fade" [class.show]="isDrawerOpen" *ngIf="isDrawerOpen"></div>
+      </div>
+        <div class="col-3 mt-3" style="display: flex; position: relative; left: 55%; width: 50px; height: 50px;">
+            
+          <div class="text-center mt-3">
+            <button class="btn btn-primary" type="button" (click)="toggleColors()">
+              <i class="fas fa-paint-brush"></i>
+            </button>
+            </div>
+            
+            <div *ngIf="showColors" class="d-flex justify-content-center mt-3">
+                <div *ngFor="let color of colors" class="color-box" [style.background-color]="color" (click)="changeColor(color)" style="display: flex; position: relative; width:20px; height: 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: 2px solid #000; top: 50px; right: 60%;"></div>
+            </div>
+    </div>
+      
+    <div class="container mt-5" >
+      <form class="needs-validation" novalidate style="display: fixed; position: relative; top: 60vh;">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="taskInput" placeholder="Entrer une tâche" required style="height: 70px;">
+            <input type="date" class="form-control" id="dateInput" required>
+            <input type="time" class="form-control" id="timeInput" required>
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="fas fa-check"></i> <!-- Icône de validation -->
+            </button>
+        </div>
+        <div class="invalid-feedback">Veuillez remplir tous les champs.</div>
+      </form>
+    </div>
+
+</div>
+    
