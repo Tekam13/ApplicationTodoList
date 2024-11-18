@@ -1,7 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TacheService } from '../../models/tache';
 
 
 @Component({
@@ -16,13 +17,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './journee.component.html',
   styleUrl: './journee.component.css'
 })
-export class JourneeComponent {
+export class JourneeComponent implements OnInit{
+  // je gerer le drawer de la suggestions
   isDrawerOpen = false;
 
   toggleDrawer() {
     this.isDrawerOpen = !this.isDrawerOpen;
     document.body.classList.toggle('overflow-hidden', this.isDrawerOpen);
   }
+
+  // je gere le choix des theme de couleurs 
 
   currentColor: string = 'lightgray'; // Couleur actuelle du composant
   colors: string[] = [
@@ -42,6 +46,15 @@ export class JourneeComponent {
     this.showColors = !this.showColors;
   }
 
+  // je gere la tache de la journee
+
+  ngOnInit(): void {
+    
+  }
   
+
+  onSave(){
+    
+  }
   
 }
